@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" ng-app='myApp'>
+<head>
+	<meta charset="UTF-8">
+	<title>disabled</title>
+	<script src="../bower_components/angular/angular.js"></script>
+</head>
+<body>
+	<h3>禁用按钮：</h3>
+	<!-- 文本框的内容为空的时候，model的内容为undefined 因此按钮被禁用 -->
+	<input type="text" ng-model="someProperty" placeholder="请输入内容">
+	<!-- 文本框内容不为空则按钮被开启 -->
+	<button ng-model="button" ng-disabled="!someProperty">按钮</button>
+	<h3>禁用文本域：</h3>
+	<textarea ng-disabled="isDisabled">等5秒！</textarea>
+	<script type="text/javascript">
+		angular.module("myApp",[]).run(function($rootScope,$timeout){
+			$rootScope.isDisabled = true;
+			$timeout(function(){
+				$rootScope.isDisabled = false;
+			},5000);
+		})
+	</script>
+	
+</body>
+</html>

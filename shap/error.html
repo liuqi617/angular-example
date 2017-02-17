@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+	<meta charset="UTF-8">
+	<title>watch</title>
+	<script src="../bower_components/angular/angular.js"></script>
+	<style type="text/css">
+		.error {
+			background: red;
+		}
+		.warning {
+			background: blue;
+		}
+	</style>
+</head>
+<body>
+	<div ng-controller="HeaderController">
+		<!-- 绑定一个控制器作用域 -->
+		<!-- 当isError的值为true时显示内容  同理isWarning -->
+		<div ng-class="{error: isError, warning: isWarning}">
+			{{messagetext}}
+		</div>
+		<button ng-click="showError()">显示错误</button>
+		<button ng-click="showWarning()">显示警告信息</button>
+	</div>
+
+	<script type="text/javascript">
+		var myAppModule = angular.module('myApp',[]);
+		myAppModule.controller("HeaderController",
+			function($scope){
+				$scope.isError = false;
+				$scope.isWarning = false;
+				$scope.showError =function(){
+					$scope.messagetext = "出现错误！";
+					$scope.isError = true;
+					$scope.isWarning = false;
+				};
+				$scope.showWarning = function(){
+					$scope.messagetext = "只是一个错，没事的！";
+					$scope.isWarning = true;
+					$scope.isError = false;
+				}
+
+
+			})
+		
+	</script>
+</body>
+</html>

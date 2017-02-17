@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myAPP">
+<head>
+	<meta charset="UTF-8">
+	<title>ng-copy</title>
+	<script src="../bower_components/angular/angular.js"></script>
+</head>
+<body>
+	<!-- 复制成功会显示true  复制失败会显示false -->
+	<input ng-model="value" ng-copy="copied=true" ng-init="copied=false; 
+	value='copy hello world'" >copied:{{copied}}
+
+
+	<script type="text/javascript">
+		angular.module('myAPP',[]);
+
+	</script>
+	
+</body>
+</html>

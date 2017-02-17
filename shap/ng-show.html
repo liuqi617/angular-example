@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+	<meta charset="UTF-8">
+	<title>显示show</title>
+	<script src="../bower_components/angular/angular.js"></script>
+	<style>
+		.list-disabled-true {
+			background: red;
+		}
+	</style>
+</head>
+<body>
+	<div ng-controller="menuController">
+		<!-- 绑定一个控制器作用域 -->
+		<button ng-click="toggleMenu()">切换菜单项</button>
+		<ul ng-show="menuState.show">
+			<!-- 元素是否显示 -->
+			<li>菜单项1</li>
+			<li>菜单项2</li>
+			<li>菜单项3</li>
+			<li>菜单项4</li>
+			<li>菜单项5</li>
+			<li class="list-disabled-{{isShow}}" ng-click="stun()">主页</li>
+			<!-- ng-click为点击事件不可以少了() -->
+		</ul>
+	</div>
+	
+
+	<script type="text/javascript">
+		var myAppModule = angular.module('myApp',[]);
+		myAppModule.controller('menuController',
+			function($scope){
+				$scope.menuState = {
+					//菜单隐藏
+					show: false
+				};
+				$scope.toggleMenu = function(){
+					//切换菜单显示
+					$scope.menuState.show = !$scope.menuState.show;
+				};
+				$scope.isShow = false;
+				$scope.stun =function(){
+					$scope.isShow = !$scope.isShow;
+				}
+		});
+		
+	</script>
+</body>
+</html>

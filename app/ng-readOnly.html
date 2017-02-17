@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+	<meta charset="UTF-8">
+	<title>ng-readonly</title>
+	<script src="../bower_components/angular/angular.js"></script>
+
+</head>
+<body>
+	<!-- 当这个文本没有值的时候  下面的文本就可以写   否则不行 -->
+
+	请输入内容：<input type="text" ng-model="someProperty"><br>
+	<!-- 只读属性绑定是上一个文本内容 -->
+	<input type="text" ng-readonly="someProperty" value="上一个文本有值，我就不可以写！">
+	<script type="text/javascript">
+		angular.module('myApp',[]);
+	</script>
+</body>
+</html>

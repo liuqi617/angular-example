@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+	<meta charset="UTF-8">
+	<title>菜单设计</title>
+	<script src="../bower_components/angular/angular.js"></script>
+	<style type="text/css">
+		.selected {
+			background: #3bf;
+		}
+	</style>
+</head>
+<body>
+	<table ng-controller="tableController">
+		<!-- 绑定一个控制器作用域 -->
+		<tr ng-repeat="table in directory" ng-click="selectTable($index)" ng-class="{selected: $index==selectedRow}">
+			<!-- 当一个表格行被点击的时候，将设置为当前选中行 并判断是当前选中行则 -->
+			<td>{{table.name}}</td>
+			<td>{{table.cuisine}}</td>
+		</tr>
+	</table>
+	
+	<script type="text/javascript">
+		var myAppModule = angular.module('myApp',[]);
+		myAppModule.controller("tableController",
+			function($scope){
+				// 绑定一个菜单
+				$scope.directory = [
+					{
+						name: "洞庭湖1",
+						cuisine: "西红柿炒蛋"
+					},{
+						name: "洞庭湖2",
+						cuisine: "开胃鱼"
+					},{
+						name: "洞庭湖3",
+						cuisine: "鱼香肉丝"
+					},{
+						name: "洞庭湖4",
+						cuisine: "白菜萝卜汤"
+					}
+				];
+				$scope.selectTable = function(row){
+			// 将选中的行设置为参数传入  参数不可少  否则会出错
+					$scope.selectedRow = row;
+				};
+			});
+		
+	</script>
+</body>
+</html>

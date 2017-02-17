@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+	<meta charset="UTF-8">
+	<title>数据绑定</title>
+	<script src="../bower_components/angular/angular.js"></script>
+
+</head>
+<body ng-controller='CarCtrl'>
+	<!-- 下面两种写法是一样的 -->
+	<p ng-bind='greeting'></p>
+	<p>{{greeting}}</p>
+	<script type="text/javascript">
+		angular.module('myApp',[]);
+		angular.module('myApp').controller('CarCtrl', function($scope){
+			$scope.greeting = "angular的世界欢迎你的到来！";
+		});
+	</script>
+	
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+	<meta charset="UTF-8">
+	<title>ng-option</title>
+	<script src="../bower_components/angular/angular.js"></script>
+</head>
+<body>
+	<div ng-controller="CityController">
+		<!-- ng-option对ng-model中的变量进行迭代  x为索引  y为item -->
+		<select ng-model="city" ng-options="y.name for (x,y) in cities">
+			<option value="">
+				请选择城市
+			</option>
+		</select>
+		<br>
+		当前城市：{{city.name}}
+		<br>
+		城市说明：{{city.text}}
+		<br>
+		<select>
+			<option value="city.text" ng-bind="city.name" 
+			ng-repeat="city in cities"></option>
+		</select>
+		
+	</div>
+
+
+	<script type="text/javascript">
+		angular.module('myApp',[]).controller('CityController',
+			function($scope){
+				$scope.cities = [
+					{
+						"name": "北京",
+						"text": "国家的首都"
+					},{
+						"name": "郑州",
+						"text": "河南的省会"
+					},{
+						"name": "云南",
+						"text": "魅力之城"
+					},{
+						"name": "林州",
+						"text": "市外桃源"
+					}
+				]
+			})
+	</script>
+</body>
+</html>

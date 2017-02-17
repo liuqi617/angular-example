@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+	<meta charset="UTF-8">
+	<title>ng-class</title>
+	<script src="../bower_components/angular/angular.js"></script>
+	<style>
+		.red{
+			color: red;
+		}
+	</style>
+</head>
+<body ng-controller="CssCtrl">
+	<div ng-class="{red: x>7}" ng-if="x>5">
+		<b>你赢了！</b>
+	</div>
+	<button ng-click="x=generatorNumber()" ng-init="x=0">变</button>
+	<p>当前数字是:{{x}}</p>
+	<script type="text/javascript">
+		angular.module('myApp',[]).controller('CssCtrl',function($scope){
+			$scope.generatorNumber = function(){
+				return Math.floor((Math.random() * 10)+2);
+			}
+		})
+	</script>
+	
+</body>
+</html>

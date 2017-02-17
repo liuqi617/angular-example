@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+	<meta charset="UTF-8">
+	<title>学生列表</title>
+	<script src="../bower_components/angular/angular.js"></script>
+</head>
+<body>
+	<div ng-controller="studentListController">
+		<ul>
+			<li ng-repeat="student in students">
+				<!-- 迭代生成dom元素 -->
+				<a ng-href="/student/view/{{student.id}}">
+					
+					{{student.name}}
+				</a>
+				<!-- 可以在属性和text节点中使用迭代数据的绑定 -->
+			</li>
+		</ul>
+		<button ng-click="insertSong()">添加一个人</button>
+	</div>
+
+	<script type="text/javascript">
+		var students =[
+			{
+				"name": "liuqi",
+				"id": "01"
+			},{
+				"name": "xiaoli",
+				"id": "02"
+			},{
+				"name": "jiwei",
+				"id": "03"
+			},{
+				"name": "jingze",
+				"id": "04"
+			}
+		];
+		//声明模块和控制器
+		var myAppModule = angular.module('myApp',[]);
+		myAppModule.controller("studentListController",function($scope){
+			$scope.students = students;
+			$scope.insertSong = function(){
+		// 向数组中添加一个元素  就可以向dom中添加一个对象
+				$scope.students.splice(4,0,{name:'song',id: 5});
+			}	
+		});
+	</script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+{
+  "name": "angular-example",
+  "homepage": "n",
+  "authors": [
+    "liuqi <liuqi617.com>"
+  ],
+  "description": "this is my first angular",
+  "main": "",
+  "keywords": [
+    "angular"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.6.2"
+  }
+}

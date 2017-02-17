@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+	<meta charset="UTF-8">
+	<title>angular</title>
+	<script type="text/JavaScript" src="../bower_components/angular/angular.js"></script>
+	<script type="text/JavaScript" src="js/ctrl.js"></script>
+	
+	
+</head>
+<body>
+	<div ng-controller="HelloCtrl">
+		<input type="text" ng-model="greeting.text">
+		<p>{{greeting.text}},World!</p>
+	</div>
+</body>
+</html>

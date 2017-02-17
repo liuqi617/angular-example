@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+	<meta charset="UTF-8">
+	<title>ng-change</title>
+	<script src="../bower_components/angular/angular.js"></script>
+</head>
+<body>
+	<div ng-controller="ChangeCtrl">
+		<input type="text" ng-change="onChange()" ng-model="equ.x">
+		<code>{{equ.out}}</code>
+	</div>
+	<script type="text/javascript">
+		angular.module('myApp',[]).controller('ChangeCtrl',function($scope){
+			$scope.equ = {};//绑定一个对象
+			$scope.onChange = function(){
+				$scope.equ.out = Number($scope.equ.x)+2;
+			};//事件处理
+
+		});
+	</script>
+</body>
+</html>

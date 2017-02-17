@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+	<meta charset="UTF-8">
+	<title>ng-class2</title>
+	<script src="../bower_components/angular/angular.js"></script>
+	<style>
+		.odd{/*奇数*/ background: blue;}
+		.even{/*偶数*/ background: red;}
+	</style>
+</head>
+<body>
+	<div ng-controller="peopleController">
+		<!-- 奇数和偶数分行显示不同颜色 -->
+		<li ng-repeat="person in people" ng-class="{even: $even, odd: $odd}">
+			{{person.name}}在{{person.city}}
+		</li>
+	</div>	
+		<script type="text/javascript">
+			angular.module('myApp',[]).controller('peopleController',
+				function($scope){
+					$scope.people = [
+						{
+							"name": "liuqi",
+							"city": "shanghai"
+						},{
+							"name": "xiaosong",
+							"city": "beijing"
+						},{
+							"name": "songqi",
+							"city": "yunnan"
+						},{
+							"name": "刘琪",
+							"city": "shanghai"
+						},{
+							"name": "小宋",
+							"city": "beijing"
+						},{
+							"name": "宋琦",
+							"city": "yunnan"
+						}
+					]
+
+
+			})
+		</script>
+	
+</body>
+</html>

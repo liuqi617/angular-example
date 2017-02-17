@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+	<meta charset="UTF-8">
+	<title>ng-href</title>
+	<script src="../bower_components/angular/angular.js"></script>
+</head>
+<body>
+	<h3>禁用按钮：</h3>
+	<!-- 加载完后才可以点击 -->
+	<a ng-href="{{myHref}}">ng-href属性</a>
+	<!-- 没加载完就点击会出错 -->
+	<a href="{{myHref}}">href的属性</a>
+	<script type="text/javascript">
+		angular.module('myApp',[]).run(function($rootScope,$timeout){
+			$timeout(function(){
+				$rootScope.myHref = "https://www.baidu.com"
+			},4000)
+
+		})
+
+	</script>
+	
+</body>
+</html>

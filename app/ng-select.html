@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+	<meta charset="UTF-8">
+	<title>表单的联动</title>
+	<script src="../bower_components/angular/angular.js"></script>
+</head>
+<body>
+	<div>
+		<label>选中的水果：</label>
+		<input type="checkbox" ng-model="apple"><br>
+		<select>
+			<option>葡萄</option>
+			<option>香蕉</option>
+			<option>橘子</option>
+			<option>石榴</option>
+			<option ng-selected="apple">苹果</option>
+		</select>
+	</div>
+	<script>
+		angular.module('myApp',[]);
+	</script>
+	
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+	<meta charset="UTF-8">
+	<title>赋值操作</title>
+	<script src="../bower_components/angular/angular.js"></script>
+</head>
+<body>
+	<div ng-controller="CountController">
+		<!-- 绑定一个控制器作用域 -->
+		{{count}}
+		<button ng-click="count = 6">视图赋值</button>
+		<button ng-click="setCount()">控制器赋值</button>
+	</div>
+
+	<script type="text/javascript">
+		var myAppModule = angular.module("myApp",[]);
+		myAppModule.controller("CountController",
+			function($scope){
+				$scope.setCount = function(){
+					$scope.count = 3;
+					//对作用域赋值是控制器的职责
+				}
+			})
+
+	
+	</script>
+</body>
+</html>

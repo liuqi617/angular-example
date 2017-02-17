@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+	<meta charset="UTF-8">
+	<title>重置表单</title>
+	<script src="../bower_components/angular/angular.js"></script>
+</head>
+<body>
+	<!-- 双向数据绑定  视图中的值发生变化会通知控制器 控制器的值发生变化 不会通知视图 -->
+	<form ng-controller="StartUpController">
+		<!-- 绑定一个控制器的作用域  输入框的值改变事件  调用方法 -->
+		初始值：<input ng-change="computeNeeded()" ng-model="funding.startingEstimate">
+		<!-- 双向数据绑定 -->
+		乘以10之后：<input type="text" value="{{funding.needed}}">
+		<br>
+		<button ng-click="requestFunding()">表单提交</button>
+		<button ng-click="reset()">重置表单</button>
+	</form>
+
+	<script type="text/javascript">
+		var myAppModule = angular.module('myApp',[]);
+		myAppModule.controller("StartUpController",function($scope){
+			$scope.funding = {
+				startingEstimate: 0
+			};
+
+			$scope.computeNeeded = function(){
+				//每当输入框的值发生改变  会将funding的值改为输入框的10倍
+				$scope.funding.needed = $scope.funding.startingEstimate * 10;
+			};
+			$scope.requestFunding = function(){
+				window.alert("确认提交？");
+			};
+			$scope.reset = function(){
+				$scope.funding.startingEstimate = 0,
+				$scope.funding.needed = 0
+			}
+
+		});
+	</script>
+</body>
+</html>
